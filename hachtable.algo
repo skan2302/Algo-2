@@ -1,0 +1,45 @@
+var 
+  htab : HASH_TABLE<STRING,INTEGER> ; 
+  tab1 : ARRAY_OF INTEGER[50] ;
+  tab2 : ARRAY_OF INTEGER[50] ;
+   
+    j,i : INTEGER ;
+    sum:=0 ; 
+
+Begin
+ 
+ Read(tab1);
+ Read(tab2);
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+            IF (tab1[i] <> tab2[j]) THEN
+            htab.insert(tab1[i], 1); ELSE
+            htab.insert(tab1[i], 2);
+            END_IF
+        END_FOR
+    END_FOR
+    
+    FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+        FOR j FROM 0 TO set1.length-1 STEP 1  DO
+            IF (tab2[i] <> tab1[j]) THEN
+                htab.insert(tab2[i], 1); ELSE
+                htab.insert(tab2[i], 2);
+            END_IF
+        END_FOR
+    END_FOR 
+
+    ht1 : ARRAY_OF INTEGER[100];
+    ht2 : ARRAY_OF INTEGER[100];
+    ht1:= htab.getkeys();
+    ht2:= htab.getvalue();
+    FOR i FROM 0 TO ht1.length-1 STEP 1  DO
+        FOR j FROM 0 TO ht2.length-1 STEP step  DO
+        IF (ht2[j]=1) THEN
+            sum:= sum + ht1[j]
+        END_IF
+        
+        END_FOR
+    END_FOR
+    
+    Write(sum);
+    END
