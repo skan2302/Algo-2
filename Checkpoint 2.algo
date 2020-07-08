@@ -1,0 +1,28 @@
+Algorithm Linear Data Structures
+
+
+var 
+  tab1 : ARRAY_OF INTEGER[50] ;
+  tab2 : ARRAY_OF INTEGER[50] ;
+    j,i : INTEGER ;
+    sum:=0 ; 
+Begin
+ 
+ FOR i FROM 0 TO tab1.length-1   DO
+        FOR j FROM 0 TO tab2.length-1   DO
+            IF (tab1[i]<>tab2[j]) THEN
+                 sum:= tab1[i]+sum
+            END_IF
+        END_FOR
+    END_FOR
+
+    FOR i FROM 0 TO tab1.length-1  DO
+        FOR j FROM 0 TO tab2.length-1   DO
+            IF (tab1[i]<>tab2[j]) THEN
+                sum:= tab2[j]+sum
+            END_IF
+        END_FOR
+    END_FOR
+
+    Write("sum1",sum);
+END
